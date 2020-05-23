@@ -38,7 +38,10 @@
 
     if (timeLeft < 0 ) {
       clearTimeout(timeoutID);
-      alert('Game Over');
+      timerLabel.textContent = '0:00';
+      setTimeout(() =>{
+        alert('Game Over');
+      }, 100);
     }
   }
 
