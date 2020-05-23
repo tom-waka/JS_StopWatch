@@ -15,7 +15,6 @@
   const timeLimit = 3 * 1000;
   let startTime;
 
-
   const target = document.getElementById('target');
   const scoreLabel = document.getElementById('score');
   const missLabel = document.getElementById('miss');
@@ -32,6 +31,15 @@
   function updateTimer () {
     const timeLeft = startTime + timeLimit - Date.now();
     timerLabel.textContent = (timeLeft / 1000).toFixed(2);
+
+    const timeoutID = setTimeout(() => {
+      updateTimer();
+    }, 10);
+
+    if (timeLeft < 0 ) {
+      clearTimeout(timeoutID);
+      alert('Game Over');
+    }
   }
 
   window.addEventListener('click', () => {
