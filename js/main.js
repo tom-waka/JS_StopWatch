@@ -42,9 +42,14 @@
       clearTimeout(timeoutID);
       timerLabel.textContent = '0:00';
       setTimeout(() =>{
-        alert('Game Over');
+        showResult();
       }, 100);
     }
+  }
+
+  function showResult () {
+    const accuracy = score + miss === 0 ? 0 : score / (score + miss) * 100;
+    alert(`${score}文字入力：${miss}回のミス：正確さは${accuracy.toFixed(2)}％でした！`);
   }
 
   window.addEventListener('click', () => {
